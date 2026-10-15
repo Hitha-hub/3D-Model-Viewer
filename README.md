@@ -34,7 +34,4 @@ dotnet run
 - `Equipment.cs`: equipment model
 - `App.xaml`: application startup
 
-This project uses the Helix Toolkit NuGet package. It is not the full Helix Toolkit source repository. Understand, test, and extend the code before listing it as your own portfolio work.
-=======
-# 3D-Model-Viewer
->>>>>>> 66339995c118391a798d2584668e0fd8ccc4236d
+
