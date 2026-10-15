@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Simple3DEquipmentViewer/1.0.0": {
+        "dependencies": {
+          "HelixToolkit.Wpf": "2.27.3"
+        },
+        "runtime": {
+          "Simple3DEquipmentViewer.dll": {}
+        }
+      },
+      "HelixToolkit.Wpf/2.27.3": {
+        "runtime": {
+          "lib/net462/HelixToolkit.Wpf.dll": {
+            "assemblyVersion": "2.27.3.0",
+            "fileVersion": "2.27.3.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Simple3DEquipmentViewer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HelixToolkit.Wpf/2.27.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LGnMTvdu3GzHM8nOvY7JZojTWoO9Y6f2/Zl3AqHtL5gg57QcSe3xnNnWacupieuQwQazNXgQT8iMeZQRkmwh4w==",
+      "path": "helixtoolkit.wpf/2.27.3",
+      "hashPath": "helixtoolkit.wpf.2.27.3.nupkg.sha512"
+    }
+  }
+}

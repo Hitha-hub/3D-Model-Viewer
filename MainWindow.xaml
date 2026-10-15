@@ -1,0 +1,51 @@
+<Window x:Class="Simple3DEquipmentViewer.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:h="http://helix-toolkit.org/wpf"
+ Title="3D Equipment Viewer and Manager" Height="700" Width="1100"
+ MinHeight="560" MinWidth="850" WindowStartupLocation="CenterScreen">
+ <Grid Margin="12">
+  <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+  <DockPanel Grid.Row="0" Margin="0,0,0,10">
+   <TextBlock Text="3D Equipment Viewer and Manager" FontSize="22" FontWeight="SemiBold" VerticalAlignment="Center"/>
+   <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+    <Button Content="Add Tank" Click="AddTank_Click" Padding="12,6" Margin="8,0,0,0"/>
+    <Button Content="Add Box" Click="AddBox_Click" Padding="12,6" Margin="8,0,0,0"/>
+    <Button Content="Remove" Click="Remove_Click" Padding="12,6" Margin="8,0,0,0"/>
+   </StackPanel>
+  </DockPanel>
+  <Grid Grid.Row="1">
+   <Grid.ColumnDefinitions><ColumnDefinition Width="3*"/><ColumnDefinition Width="300"/></Grid.ColumnDefinitions>
+   <Border Grid.Column="0" BorderBrush="#D0D5DD" BorderThickness="1" CornerRadius="4" Margin="0,0,12,0">
+    <h:HelixViewport3D x:Name="SceneViewport" ZoomExtentsWhenLoaded="True"
+      ShowCoordinateSystem="True" ShowViewCube="True" Background="#F7F9FC"
+      MouseDown="SceneViewport_MouseDown">
+     <h:DefaultLights/>
+     <h:GridLinesVisual3D Width="20" Length="20" MinorDistance="1" MajorDistance="5" Thickness="0.5"/>
+    </h:HelixViewport3D>
+   </Border>
+   <Border Grid.Column="1" BorderBrush="#D0D5DD" BorderThickness="1" CornerRadius="4" Padding="12">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+     <StackPanel>
+      <TextBlock Text="Equipment" FontSize="17" FontWeight="SemiBold" Margin="0,0,0,8"/>
+      <ListBox x:Name="EquipmentList" Height="190" SelectionChanged="EquipmentList_SelectionChanged" DisplayMemberPath="Name"/>
+      <Separator Margin="0,12"/>
+      <TextBlock Text="Selected equipment" FontSize="17" FontWeight="SemiBold" Margin="0,0,0,10"/>
+      <TextBlock Text="Name"/><TextBox x:Name="NameBox" Margin="0,3,0,8"/>
+      <TextBlock Text="Type"/><TextBox x:Name="TypeBox" IsReadOnly="True" Margin="0,3,0,8" Background="#F2F4F7"/>
+      <TextBlock Text="Status"/>
+      <ComboBox x:Name="StatusCombo" Margin="0,3,0,10" SelectionChanged="StatusCombo_SelectionChanged">
+       <ComboBoxItem Content="Running"/><ComboBoxItem Content="Warning"/><ComboBoxItem Content="Stopped"/>
+      </ComboBox>
+      <Button Content="Apply Changes" Click="ApplyChanges_Click" Padding="10,7"/>
+      <Separator Margin="0,12"/>
+      <Button Content="Save to JSON" Click="Save_Click" Padding="10,7" Margin="0,0,0,7"/>
+      <Button Content="Load from JSON" Click="Load_Click" Padding="10,7"/>
+      <TextBlock Text="Tip: click an object in the 3D view or select it from the list." TextWrapping="Wrap" Foreground="#667085" Margin="0,14,0,0"/>
+     </StackPanel>
+    </ScrollViewer>
+   </Border>
+  </Grid>
+  <TextBlock x:Name="FooterText" Grid.Row="2" Margin="0,10,0,0" Foreground="#667085" Text="Ready"/>
+ </Grid>
+</Window>
